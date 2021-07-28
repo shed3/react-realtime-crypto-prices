@@ -1,0 +1,58 @@
+{
+  "name": "react-realtime-crypto-prices",
+  "version": "0.0.1",
+  "description": "React context provider and accompanying hook for getting real time crypto prices.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rileystephens28/react-realtime-crypto-prices.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rileystephens28/react-realtime-crypto-prices/issues"
+  },
+  "homepage": "https://github.com/rileystephens28/react-realtime-crypto-prices#readme",
+  "directories": {
+    "example": "example",
+    "lib": "lib"
+  },
+  "keywords": [
+    "react",
+    "crypto",
+    "cyrptocurrency",
+    "crypto price",
+    "realtime prices",
+    "crypto trading",
+    "cryptocurrency trading",
+    "realtime trading",
+    "crypto dashboard"
+  ],
+  "license": "MIT",
+  "author": "Riley Stephens",
+  "main": "./lib/index.js",
+  "module": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "files": ["/lib"],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -r ./lib/ && tsc",
+    "lint": "eslint src/**/*.{ts,tsx} --quiet --fix"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^16.3.1",
+    "@types/react": "^17.0.14",
+    "@typescript-eslint/eslint-plugin": "^4.28.2",
+    "@typescript-eslint/parser": "^4.28.2",
+    "eslint": "^7.30.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.3.2",
+    "react": "^17.0.2",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {}
+}
