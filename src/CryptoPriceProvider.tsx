@@ -2,11 +2,7 @@ import React, { useReducer, useEffect } from "react";
 import { CryptoPriceReducer } from "./CryptoPriceReducer";
 import CryptoPriceContext from "./CryptoPriceContext";
 import axios from "axios";
-import {
-    COIN_CAP_WS_URI,
-    COIN_CAP_URI,
-    CRYPTO_COMPARE_API_KEY,
-} from "./config";
+import { COIN_CAP_WS_URI, COIN_CAP_URI } from "./config";
 import {
     STREAM_PRICES,
     STREAM_TICKER,
@@ -16,7 +12,10 @@ import {
     ITicker,
 } from "./types";
 
-export default function CryptoPriceProvider({ children }: any) {
+export default function CryptoPriceProvider({
+    cryptoCompareApiKey,
+    children,
+}: any) {
     const initialState: any = {
         assets: [],
         prices: {},
@@ -125,7 +124,7 @@ export default function CryptoPriceProvider({ children }: any) {
 
     const connectTickers = (symbols: Array<string>) => {
         state.tickersWebSocket = new WebSocket(
-            `wss://streamer.cryptocompare.com/v2?apiKey=${CRYPTO_COMPARE_API_KEY}`,
+            `wss://streamer.cryptocompare.com/v2?apiKey=${cryptoCompareApiKey}`,
         );
 
         state.tickersWebSocket.onopen = function onStreamOpen() {
@@ -177,7 +176,7 @@ export default function CryptoPriceProvider({ children }: any) {
                             high: data.CLOSE,
                             low: data.LOW,
                             close: data.CLOSE,
-                            volume: data.OPEN,
+                            volume: data.VOLUMETO,
                         };
                         const payload: any = {
                             [data.FROMSYMBOL.toLowerCase()]: formattedTicker,
@@ -194,7 +193,7 @@ export default function CryptoPriceProvider({ children }: any) {
                         high: data.CLOSE,
                         low: data.LOW,
                         close: data.CLOSE,
-                        volume: data.OPEN,
+                        volume: data.VOLUMETO,
                     };
                     const payload: any = {
                         [data.FROMSYMBOL.toLowerCase()]: formattedTicker,
@@ -223,7 +222,16 @@ export default function CryptoPriceProvider({ children }: any) {
     };
 
     const streamTickers = (symbols: Array<string>) => {
-        connectTickers(symbols);
+        if (cryptoCompareApiKey) {
+            connectTickers(symbols);
+        } else {
+            dispatch({
+                type: STREAM_TICKER,
+                payload: {
+                    error: "CryptoCompare API key is required to stream tickers",
+                },
+            });
+        }
     };
 
     const { assets, prices, tickers } = state;

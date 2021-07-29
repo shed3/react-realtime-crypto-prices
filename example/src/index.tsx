@@ -1,14 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { CryptoPriceProvider } from "react-realtime-crypto-prices";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
     <React.StrictMode>
-            <CryptoPriceProvider>{/* <HookExample /> */} <App /></CryptoPriceProvider>
-
-       
+        <App />
     </React.StrictMode>,
     document.getElementById("root"),
 );

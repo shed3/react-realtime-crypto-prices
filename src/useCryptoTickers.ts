@@ -17,7 +17,6 @@ const useCryptoTickers = (symbols: Array<string>) => {
 
     useEffect(() => {
         if (tickers) {
-            console.log(tickers);
             setData({ ...data, ...tickers });
         }
     }, [tickers]);

@@ -1,7 +1,7 @@
 {
   "name": "react-realtime-crypto-prices",
   "version": "0.0.1",
-  "description": "React context provider and accompanying hook for getting real time crypto prices.",
+  "description": "The easiest way to use live crypto prices in React components",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rileystephens28/react-realtime-crypto-prices.git"
@@ -18,12 +18,18 @@
     "react",
     "crypto",
     "cyrptocurrency",
-    "crypto price",
-    "realtime prices",
     "crypto trading",
     "cryptocurrency trading",
     "realtime trading",
-    "crypto dashboard"
+    "crypto dashboard",
+    "realtime prices",
+    "live prices",
+    "crypto price",
+    "crypto candles",
+    "crypto candles",
+    "crypto tickers",
+    "cryptocurrency candles",
+    "cryptocurrency tickers"
   ],
   "license": "MIT",
   "author": "Riley Stephens",
@@ -58,6 +64,7 @@
     "typescript": "^4.3.5"
   },
   "dependencies": {
-    "axios": "^0.21.1"
+    "axios": "^0.21.1",
+    "dotenv": "^10.0.0"
   }
 }
