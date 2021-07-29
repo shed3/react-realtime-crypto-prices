@@ -1,11 +1,11 @@
 import React from "react";
+import { HookExample } from "./HookExampleComponent.tsx";
 import "./App.css";
 
 function App() {
-    const [icon, setIcon] = React.useState<string>("btc");
     return (
         <div className="App">
-            
+            <HookExample />
         </div>
     );
 }

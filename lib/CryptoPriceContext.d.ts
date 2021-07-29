@@ -1,5 +1,4 @@
-import { createContext } from "react";
-
+/// <reference types="react" />
 interface PriceStreaming {
     intialized: boolean;
     assets: Array<any>;
@@ -8,13 +7,5 @@ interface PriceStreaming {
     streamPrices?: (symbols: Array<string>) => void;
     streamTickers?: (symbols: Array<string>) => void;
 }
-
-const defaultValue: PriceStreaming = {
-    intialized: false,
-    assets: [],
-    prices: {},
-    tickers: {},
-};
-
-const CryptoPriceContext = createContext(defaultValue);
+declare const CryptoPriceContext: import("react").Context<PriceStreaming>;
 export default CryptoPriceContext;

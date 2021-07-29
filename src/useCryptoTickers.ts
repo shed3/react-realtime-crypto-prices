@@ -1,26 +1,28 @@
 import React, { useState, useContext, useEffect } from "react";
 import CryptoPriceContext from "./CryptoPriceContext";
 
-const useCryptoPrices = (symbols: Array<string>) => {
+const useCryptoTickers = (symbols: Array<string>) => {
     const [streamOpen, setStreamOpen] = useState(false);
     const [data, setData] = useState({});
+
     const priceContext = useContext(CryptoPriceContext);
-    const { assets, prices, streamPrices } = priceContext;
+    const { assets, tickers, streamTickers } = priceContext;
 
     useEffect(() => {
         if (!streamOpen && assets.length > 0) {
-            streamPrices(symbols);
+            streamTickers(symbols);
             setStreamOpen(true);
         }
     }, [assets, symbols, streamOpen]);
 
     useEffect(() => {
-        if (prices) {
-            setData({ ...data, ...prices });
+        if (tickers) {
+            console.log(tickers);
+            setData({ ...data, ...tickers });
         }
-    }, [prices]);
+    }, [tickers]);
 
     return data;
 };
 
-export default useCryptoPrices;
+export default useCryptoTickers;

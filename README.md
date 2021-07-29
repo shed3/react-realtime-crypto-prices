@@ -64,10 +64,37 @@ Make sure all new features are tested before creating PR.
 
 If you are into making SVGs, head over to the [cryptocurrency-icons][cryptocurrency-icons] project. I am sure they would love the extra iconage.
 
-Build:
+Install Package Dependencies:
+
+```sh
+npm install
+```
+
+Build Package:
 
 ```sh
 npm run build
+```
+
+Create Package Link:
+
+```sh
+npm link
+```
+
+Install Example Project Dependencies:
+
+```sh
+cd example/
+npm install
+npm link react-realtime-crypto-prices
+```
+
+Resolve React versions between package and example project:
+
+```sh
+cd ../
+npm link example/node_modules/react
 ```
 
 Run tests:
